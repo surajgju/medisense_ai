@@ -44,14 +44,14 @@ export const ImagingPanel: React.FC<ImagingPanelProps> = ({
       data-panel-anchor="panel-imaging"
       onMouseEnter={() => onHoverChange(true)}
       onMouseLeave={() => onHoverChange(false)}
-      className={`relative rounded-xl border backdrop-blur-md p-3 transition-all duration-200 ${borderClass}`}
+      className={`relative rounded-xl border backdrop-blur-md p-2.5 transition-all duration-200 ${borderClass}`}
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-3 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/70 dark:via-cyan-200/60 to-transparent"
       />
 
-      <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-cyan-400/15">
+      <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-slate-100 dark:border-cyan-400/15">
         <div className="flex items-center gap-1.5 min-w-0">
           <ScanLine className="w-3.5 h-3.5 text-sky-600 dark:text-cyan-300 shrink-0" aria-hidden="true" />
           <span className="text-xs font-semibold tracking-tight text-slate-900 dark:text-slate-100 truncate">
@@ -68,7 +68,7 @@ export const ImagingPanel: React.FC<ImagingPanelProps> = ({
         </button>
       </div>
 
-      <div className="grid grid-cols-3 gap-1.5 mt-2">
+      <div className="grid grid-cols-3 gap-1.5 mt-1.5">
         {PREVIEW_SCANS.map((scan) => (
           <button
             key={scan.modality}
@@ -80,7 +80,7 @@ export const ImagingPanel: React.FC<ImagingPanelProps> = ({
               src={scan.src}
               alt={scan.alt}
               referrerPolicy="no-referrer"
-              className="w-full h-11 object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+              className="w-full h-9 object-cover opacity-90 group-hover:opacity-100 transition-opacity"
             />
             <div className="bg-slate-50 dark:bg-slate-950/90 border-t border-slate-200 dark:border-t-0 px-1 py-0.5 text-[9.5px] font-mono font-medium text-slate-700 dark:text-cyan-200 text-center">
               {scan.modality}
@@ -89,7 +89,7 @@ export const ImagingPanel: React.FC<ImagingPanelProps> = ({
         ))}
       </div>
 
-      <div className="mt-2 flex items-center justify-between gap-2 text-[11px]">
+      <div className="mt-1.5 flex items-center justify-between gap-2 text-[11px]">
         <span className="text-slate-500 dark:text-slate-400 truncate">
           {latest ? `${latest.id} · ${latest.bodyRegion}` : 'Illustrative Scans'}
         </span>

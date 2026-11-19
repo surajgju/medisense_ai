@@ -56,7 +56,7 @@ export const HoloPanelShell: React.FC<HoloPanelShellProps> = ({
       data-panel-anchor={panelId}
       onMouseEnter={() => onHoverChange?.(true)}
       onMouseLeave={() => onHoverChange?.(false)}
-      className={`relative rounded-xl border backdrop-blur-md p-3 transition-all duration-200 ${borderClass}`}
+      className={`relative rounded-xl border backdrop-blur-md p-2.5 transition-all duration-200 ${borderClass}`}
     >
       {/* Subtle top glass reflection highlight */}
       <div
@@ -69,7 +69,7 @@ export const HoloPanelShell: React.FC<HoloPanelShellProps> = ({
         onClick={onActivate}
         className="w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:focus-visible:ring-cyan-400 rounded-lg"
       >
-        <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-cyan-400/15">
+        <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-slate-100 dark:border-cyan-400/15">
           <div className="flex items-center gap-1.5 min-w-0">
             <span className="text-sky-600 dark:text-cyan-300 shrink-0" aria-hidden="true">
               {icon}
@@ -80,7 +80,7 @@ export const HoloPanelShell: React.FC<HoloPanelShellProps> = ({
           </div>
           <HoloStatusBadge label={statusLabel} tone={statusTone} />
         </div>
-        <div className="pt-2">{children}</div>
+        <div className="pt-1.5">{children}</div>
       </button>
     </div>
   );

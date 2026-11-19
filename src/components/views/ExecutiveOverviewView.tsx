@@ -82,15 +82,14 @@ export const ExecutiveOverviewView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Executive Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5 min-w-0">
+          <h1 className="font-display text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50 whitespace-nowrap">
             Good morning, Dr. Arun Patel
           </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-            Intelligent Healthcare. Better Decisions. Better Outcomes. ·{' '}
+          <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
             <span className="font-medium text-slate-700 dark:text-slate-300">
               {selectedDepartment === 'All' ? 'All Network Specialties' : selectedDepartment}
             </span>{' '}
@@ -98,11 +97,11 @@ export const ExecutiveOverviewView: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2.5">
+        <div className="flex flex-wrap items-center gap-2 shrink-0">
           <button
             type="button"
             onClick={handleExportExecutiveCsv}
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
           >
             <Download className="w-3.5 h-3.5" />
             Export KPI CSV
@@ -110,7 +109,7 @@ export const ExecutiveOverviewView: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveRoute('ai-centre')}
-            className="inline-flex items-center gap-2 rounded-lg bg-sky-600 hover:bg-sky-700 px-4 py-2 text-xs font-semibold text-white shadow-sm transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm transition-colors whitespace-nowrap"
           >
             <BrainCircuit className="w-3.5 h-3.5" />
             Open AI Intelligence Centre

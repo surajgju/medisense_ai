@@ -83,7 +83,7 @@ const DashboardShell: React.FC = () => {
       <div className="flex-1 min-w-0 flex flex-col">
         <TopBar onOpenMobileNav={() => setMobileNavOpen(true)} />
 
-        <main className="flex-1 p-4 sm:p-6 max-w-[1600px] w-full mx-auto">
+        <main className="flex-1 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[1600px] w-full mx-auto">
           {renderView()}
         </main>
       </div>

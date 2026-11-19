@@ -69,8 +69,8 @@ export const CardiacPanel: React.FC<CardiacPanelProps> = ({
       </div>
 
       {/* Inline crisp ECG Lead II waveform */}
-      <div className="mt-2 rounded-md border border-sky-200/80 dark:border-cyan-400/20 bg-sky-50/70 dark:bg-slate-950/70 px-1.5 py-1">
-        <svg viewBox="0 0 220 38" className="w-full h-9" role="img" aria-label={`ECG waveform at ${heartRate} BPM`}>
+      <div className="mt-1.5 rounded-md border border-sky-200/80 dark:border-cyan-400/20 bg-sky-50/70 dark:bg-slate-950/70 px-1.5 py-0.5">
+        <svg viewBox="0 0 220 38" className="w-full h-7" role="img" aria-label={`ECG waveform at ${heartRate} BPM`}>
           <line x1="0" y1="24" x2="220" y2="24" stroke="var(--holo-ecg)" strokeOpacity="0.2" strokeDasharray="2 3" strokeWidth="0.7" />
           <polyline
             fill="none"

@@ -111,7 +111,7 @@ export const TopBar: React.FC<TopBarProps> = ({ onOpenMobileNav }) => {
       searchResults.imaging.length > 0);
 
   return (
-    <header className="sticky top-0 z-20 h-16 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800 px-4 lg:px-6 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-20 h-13 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800 px-4 lg:px-5 flex items-center justify-between gap-4">
       <div className="flex items-center gap-3 min-w-0">
         <button
           type="button"

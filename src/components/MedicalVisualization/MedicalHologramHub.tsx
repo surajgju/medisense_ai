@@ -253,23 +253,21 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
   return (
     <section
       aria-label="Interactive Human Body Vitals Monitor"
-      className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
+      className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 sm:p-3.5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
     >
-      {/* Top Clinical Bar */}
-      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-3 pb-4">
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+      {/* Top Clinical Bar (Single-Row Compact Header) */}
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-2 pb-2">
+        <div className="min-w-0 flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+          <h2 className="font-display text-base font-bold text-slate-900 dark:text-slate-50 whitespace-nowrap">
+            Patient Organ-System &amp; Vitals Overview
+          </h2>
+          <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 whitespace-nowrap">
             <span className="font-semibold text-sky-700 dark:text-sky-400">
               Anatomical Vitals Twin
             </span>
             <span aria-hidden="true">·</span>
-            <span>Simulated Holographic Telemetry</span>
-            <span aria-hidden="true">·</span>
             <span className="font-mono tabular-nums">{activePatient.vitals.recordedAt}</span>
           </div>
-          <h2 className="font-display text-lg font-bold text-slate-900 dark:text-slate-50 mt-0.5">
-            Patient Organ-System &amp; Vitals Overview
-          </h2>
         </div>
 
         <div className="flex flex-wrap items-center gap-2 shrink-0">
@@ -280,7 +278,7 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
             id="body-vitals-patient-select"
             value={activePatient.id}
             onChange={(e) => onSelectPatient(e.target.value)}
-            className="h-9 w-full sm:w-auto max-w-full sm:max-w-[245px] rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 text-xs font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="h-8 w-full sm:w-auto max-w-full sm:max-w-[235px] rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-2.5 text-xs font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"
           >
             {patientOptions.map((p) => (
               <option key={p.id} value={p.id}>
@@ -292,7 +290,7 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
           <button
             type="button"
             onClick={() => onInspectPatient(activePatient.id)}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap"
           >
             <Eye className="w-3.5 h-3.5" aria-hidden="true" />
             Inspect Record
@@ -301,7 +299,7 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
           <button
             type="button"
             onClick={() => onOpenDecisionSupport(activePatient.id)}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 px-3.5 py-2 text-xs font-semibold text-white transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-sky-600 hover:bg-sky-700 px-3 py-1.5 text-xs font-semibold text-white transition-colors whitespace-nowrap"
           >
             <Stethoscope className="w-3.5 h-3.5" aria-hidden="true" />
             Decision Support
@@ -313,7 +311,7 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
       {/* System-Harmonized Clinical Holographic Stage (Light Ice-Sky Default + Deep-Navy Dark Mode) */}
       <div
         ref={stageRef}
-        className="relative rounded-xl border border-sky-200/80 dark:border-cyan-500/25 overflow-hidden bg-slate-50 dark:bg-slate-950 p-3 sm:p-5"
+        className="relative rounded-xl border border-sky-200/80 dark:border-cyan-500/25 overflow-hidden bg-slate-50 dark:bg-slate-950 p-2.5 sm:p-3"
       >
         <HolographicEnvironmentBackdrop />
 
@@ -324,10 +322,10 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
           layoutVersion={`${activePatient.id}-${zoomMode}-${showSkeleton}-${activeFocusOrgan}`}
         />
 
-        {/* Stage Sub-header */}
-        <div className="relative z-20 flex flex-wrap items-center justify-between gap-3 pb-3 mb-3 border-b border-slate-200/80 dark:border-cyan-400/15">
+        {/* Compact Stage Sub-header */}
+        <div className="relative z-20 flex flex-wrap items-center justify-between gap-2 pb-2 mb-2 border-b border-slate-200/80 dark:border-cyan-400/15">
           <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2 text-xs text-slate-600 dark:text-slate-200">
+            <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-600 dark:text-slate-200">
               <span className="font-semibold text-slate-900 dark:text-white">{activePatient.name}</span>
               <span className="font-mono text-sky-700 dark:text-cyan-300/80">
                 {activePatient.id} · {activePatient.age}y {activePatient.gender}
@@ -339,12 +337,12 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-1.5">
             <button
               type="button"
               onClick={() => setShowSkeleton((v) => !v)}
               aria-pressed={showSkeleton}
-              className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[11px] font-medium transition-colors whitespace-nowrap ${
+              className={`inline-flex items-center gap-1.5 rounded-lg border px-2 py-1 text-[11px] font-medium transition-colors whitespace-nowrap ${
                 showSkeleton
                   ? 'border-sky-300 bg-sky-50 text-sky-800 dark:border-cyan-400/60 dark:bg-cyan-950/60 dark:text-cyan-100'
                   : 'border-slate-200 bg-white text-slate-600 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-300 dark:hover:text-white'
@@ -358,7 +356,7 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
               type="button"
               onClick={() => setZoomMode((z) => (z === 'full' ? 'thorax' : 'full'))}
               aria-pressed={zoomMode === 'thorax'}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white hover:border-sky-300 text-slate-700 hover:text-sky-800 dark:border-cyan-400/40 dark:bg-slate-900/80 dark:text-cyan-100 dark:hover:border-cyan-300 px-2.5 py-1.5 text-[11px] font-medium transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white hover:border-sky-300 text-slate-700 hover:text-sky-800 dark:border-cyan-400/40 dark:bg-slate-900/80 dark:text-cyan-100 dark:hover:border-cyan-300 px-2 py-1 text-[11px] font-medium transition-colors whitespace-nowrap"
             >
               {zoomMode === 'thorax' ? (
                 <>
@@ -376,9 +374,9 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
         </div>
 
         {/* 3-Column Holographic Composition: Left Intelligence Panels (3) | Central Anatomy (6) | Right Intelligence Panels (3) */}
-        <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+        <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-3 items-center">
           {/* Left Wing Panels: A (Brain), B (Respiratory), C (Cardiac), D (Imaging) */}
-          <div className="lg:col-span-3 space-y-3 order-2 lg:order-1">
+          <div className="lg:col-span-3 space-y-2 order-2 lg:order-1">
             <BrainPanel
               cognitiveScore={ext.cognitiveScore}
               neuroStatusLabel={ext.neuroStatusLabel}
@@ -422,10 +420,10 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
 
           {/* Center Stage (~50% width): Full Holographic Human Body & Interactive Organs */}
           <div className="lg:col-span-6 flex flex-col items-center justify-between order-1 lg:order-2">
-            <div className="relative w-full flex items-center justify-center overflow-hidden rounded-xl py-1">
+            <div className="relative w-full flex items-center justify-center overflow-hidden rounded-xl">
               <svg
                 viewBox={zoomMode === 'thorax' ? '75 18 230 275' : '0 0 380 555'}
-                className="w-full max-w-[420px] h-[410px] sm:h-[470px] select-none transition-all duration-300"
+                className="w-full max-w-[400px] h-[380px] sm:h-[420px] lg:h-[435px] select-none transition-all duration-300"
                 role="img"
                 aria-label="Holographic human anatomical body model showing brain, lungs, heart, liver, stomach, intestines, kidneys, and skeletal system"
               >
@@ -524,7 +522,7 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
           </div>
 
           {/* Right Wing Panels: G (AI Medical), E (Metabolic), F (Mobility) + Focused Organ Readout */}
-          <div className="lg:col-span-3 space-y-3 order-3">
+          <div className="lg:col-span-3 space-y-2 order-3">
             <AiIntelligencePanel
               riskLevel={activePatient.riskLevel}
               riskScore={activePatient.riskScore}
@@ -567,9 +565,9 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
             <div
               role="region"
               aria-label="Selected Organ Detail Readout"
-              className="rounded-xl border border-sky-200 dark:border-cyan-400/40 bg-white/95 dark:bg-slate-900/85 backdrop-blur-md p-3 shadow-[0_2px_10px_rgba(15,23,42,0.04)]"
+              className="rounded-xl border border-sky-200 dark:border-cyan-400/40 bg-white/95 dark:bg-slate-900/85 backdrop-blur-md p-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)]"
             >
-              <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-slate-100 dark:border-cyan-400/15">
+              <div className="flex items-center justify-between gap-2 pb-1 border-b border-slate-100 dark:border-cyan-400/15">
                 <span className="text-[11px] font-semibold text-sky-800 dark:text-cyan-200 truncate">
                   {activeOrganDetail.title}
                 </span>
@@ -578,13 +576,13 @@ export const MedicalHologramHub: React.FC<MedicalHologramHubProps> = ({
                   tone={activeOrganDetail.tone}
                 />
               </div>
-              <div className="mt-2 font-mono text-xs font-semibold text-slate-900 dark:text-white tabular-nums">
+              <div className="mt-1.5 font-mono text-xs font-semibold text-slate-900 dark:text-white tabular-nums">
                 {activeOrganDetail.metric}
               </div>
-              <p className="mt-1 text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="mt-0.5 text-[11px] text-slate-600 dark:text-slate-300 leading-snug">
                 {activeOrganDetail.note}
               </p>
-              <div className="mt-1.5 text-[10px] text-slate-400">
+              <div className="mt-1 text-[10px] text-slate-400">
                 Illustrative demonstration telemetry · Clinician review required.
               </div>
             </div>
