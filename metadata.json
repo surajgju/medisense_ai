@@ -1,0 +1,6 @@
+{
+  "name": "MediSense AI",
+  "description": "AI-Powered Healthcare Intelligence Platform for predictive diagnostics, clinical decision support, medical imaging intelligence, telemedicine, and hospital operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

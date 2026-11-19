@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    --holo-body-fill-a: #0EA5E9;
+    --holo-body-fill-b: #0284C7;
+    --holo-body-stroke-a: #0284C7;
+    --holo-body-stroke-b: #0EA5E9;
+    --holo-body-stroke-c: #0369A1;
+    --holo-aura-fade: #F0F9FF;
+    --holo-contour: #0284C7;
+    --holo-bone-normal: #0369A1;
+    --holo-bone-active: #0284C7;
+    --holo-bone-fill-a: #0EA5E9;
+    --holo-bone-fill-b: #0369A1;
+    --holo-ring-outer: #0284C7;
+    --holo-ring-inner: #0EA5E9;
+    --holo-scan-line: #0284C7;
+    --holo-conn-normal: #0284C7;
+    --holo-conn-normal-hi: #0369A1;
+    --holo-conn-warn: #D97706;
+    --holo-conn-warn-hi: #B45309;
+    --holo-conn-crit: #E11D48;
+    --holo-conn-crit-hi: #BE123C;
+    --holo-conn-pulse: #38BDF8;
+    --holo-conn-dot: #0284C7;
+    --holo-ecg: #0284C7;
+    --holo-lung-neural: #0369A1;
+  }
+
+  .dark {
+    --holo-body-fill-a: #38BDF8;
+    --holo-body-fill-b: #0369A1;
+    --holo-body-stroke-a: #BAE6FD;
+    --holo-body-stroke-b: #38BDF8;
+    --holo-body-stroke-c: #0EA5E9;
+    --holo-aura-fade: #020617;
+    --holo-contour: #7DD3FC;
+    --holo-bone-normal: #BAE6FD;
+    --holo-bone-active: #E0F2FE;
+    --holo-bone-fill-a: #E0F2FE;
+    --holo-bone-fill-b: #7DD3FC;
+    --holo-ring-outer: #38BDF8;
+    --holo-ring-inner: #BAE6FD;
+    --holo-scan-line: #BAE6FD;
+    --holo-conn-normal: #38BDF8;
+    --holo-conn-normal-hi: #BAE6FD;
+    --holo-conn-warn: #FBBF24;
+    --holo-conn-warn-hi: #FDE68A;
+    --holo-conn-crit: #FB7185;
+    --holo-conn-crit-hi: #FDA4AF;
+    --holo-conn-pulse: #E0F2FE;
+    --holo-conn-dot: #F0F9FF;
+    --holo-ecg: #38BDF8;
+    --holo-lung-neural: #E0F2FE;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle enterprise scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.55);
+}
+
+@keyframes holoScanSweep {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.75;
+  }
+  88% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(1080%);
+    opacity: 0;
+  }
+}
+
+@keyframes holoHeartPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.88;
+  }
+  18% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  32% {
+    transform: scale(0.99);
+    opacity: 0.9;
+  }
+  48% {
+    transform: scale(1.035);
+    opacity: 0.98;
+  }
+}
+
+@keyframes holoBreathExpand {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.82;
+  }
+  50% {
+    transform: scale(1.022);
+    opacity: 0.96;
+  }
+}
+
+@keyframes holoParticleRise {
+  0% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-38px);
+    opacity: 0;
+  }
+}
+
+@keyframes holoDashFlow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.holo-scan-beam {
+  animation: holoScanSweep 6.4s linear infinite;
+}
+
+.holo-heart-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: holoHeartPulse 1.35s ease-in-out infinite;
+}
+
+.holo-breath-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: holoBreathExpand 4.2s ease-in-out infinite;
+}
+
+.holo-particle {
+  animation: holoParticleRise 5.5s ease-in-out infinite;
+}
+
+.holo-connector-flow {
+  stroke-dasharray: 6 8;
+  animation: holoDashFlow 2.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .holo-scan-beam,
+  .holo-heart-pulse,
+  .holo-breath-pulse,
+  .holo-particle,
+  .holo-connector-flow {
+    animation: none;
+  }
+}
